@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Cards</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color:palevioletred;
+        }
+        .main-div {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 80px;
+            padding: 20px;
+        }
+        .card {
+            border: 2px solid black;
+            border-radius: 8px;
+            background-color: green;
+            color: white;
+            width: 300px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 4px 2px 10px 10px blue;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            background-color: pink;
+            border-radius: 4px;
+        }
+        h1{
+            text-align: center;
+            display:flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>list of cards</h1>
+    <script>
+        const arr = [
+            {
+                "id": 1,
+                "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+                "price": 109.95,
+                "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+                "category": "men's clothing",
+                "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+                "rating": { "rate": 3.9, "count": 120 }
+            },
+            {
+                "id": 2,
+                "title": "Mens Casual Premium Slim Fit T-Shirts ",
+                "price": 22.3,
+                "description": "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
+                "category": "men's clothing",
+                "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+                "rating": { "rate": 4.1, "count": 259 }
+            },
+            {
+                "id": 3,
+                "title": "Mens Cotton Jacket",
+                "price": 55.99,
+                "description": "great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.",
+                "category": "men's clothing",
+                "image": "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
+                "rating": { "rate": 4.7, "count": 500 }
+            },
+            {
+                "id": 4,
+                "title": "Mens Casual Slim Fit",
+                "price": 15.99,
+                "description": "The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.",
+                "category": "men's clothing",
+                "image": "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
+                "rating": { "rate": 2.1, "count": 430 }
+            }
+        ];
+
+        const mainDiv = document.createElement("div");
+        mainDiv.classList.add("main-div");
+        document.body.appendChild(mainDiv);
+
+        arr.forEach(item => {
+            const card = document.createElement("div");
+            card.classList.add("card");
+
+            card.innerHTML = `
+                <h1>${item.title}</h1>
+                <p><strong>ID:</strong> ${item.id}</p>
+                <p>${item.description}</p>
+                <p><strong>Category:</strong> ${item.category}</p>
+                <p><strong>Price:</strong> $${item.price}</p>
+                <img src="${item.image}" alt="${item.title}">
+                <p><strong>Click to remove</strong></p>
+            `;
+
+            
+            card.addEventListener("click", () => {
+                card.remove();
+            });
+
+            mainDiv.appendChild(card);
+        });
+    </script>
+</body>
+</html>
